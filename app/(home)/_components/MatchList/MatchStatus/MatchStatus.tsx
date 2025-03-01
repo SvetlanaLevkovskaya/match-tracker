@@ -19,7 +19,7 @@ export const MatchStatusComponent = ({ status }: Props) => {
 
   return (
     <div
-      className={`${statusStyles[status]} rounded py-[6px] px-1 text-s_caption min-w-[92px] max-w-[112px] text-center`}
+      className={`${statusStyles[status]} rounded py-1.5 px-1 text-s_caption min-w-[92px] max-w-[112px] text-center`}
     >
       {statusLabels[status]}
     </div>

@@ -19,7 +19,7 @@ export const MatchList = () => {
   if (loading) return <Spinner />
   if (matches.length === 0)
     return (
-      <div className="flex justify-center items-center w-full p-4 text-gray-500">
+      <div className="flex justify-center items-center w-full p-4 text-gray-4">
         Нет матчей для отображения
       </div>
     )
@@ -59,9 +59,9 @@ export const MatchList = () => {
                 <div className="flex-center-between gap-4 flex-col ds:flex-row">
                   <TeamDetails team={match.homeTeam} isHome />
                   <div className="flex items-center w-full ds:hidden">
-                    <div className="h-[1px] flex-1 bg-gray-5"></div>
+                    <div className="flex-1 border-t border-gray-5"></div>
                     <span className="mx-2 text-s_text text-gray-5">VS</span>
-                    <div className="h-[1px] flex-1 bg-gray-5"></div>
+                    <div className="flex-1 border-t border-gray-5"></div>
                   </div>
                   <TeamDetails team={match.awayTeam} isHome={false} />
                 </div>
