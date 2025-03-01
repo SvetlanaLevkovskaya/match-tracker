@@ -2,6 +2,7 @@ import type { Config } from 'tailwindcss'
 import colors from 'tailwindcss/colors'
 import plugin from 'tailwindcss/plugin'
 
+
 const config: Config = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -16,31 +17,20 @@ const config: Config = {
   },
   theme: {
     colors: {
-      black: '#0D0E12',
+      black: '#06080C',
       gray: {
         dark: '#191B20',
-        2: '#25272C',
+        2: '#0B0E12',
         3: '#33363D',
         4: '#777777',
         5: '#E0E0E0',
       },
       white: '#F0F0F0',
-
-      purple: {
-        planet: '#AA8DFF',
-        light: '#D2C2FF',
-        dark: '#7B7293',
-      },
-      neon: {
-        glow: '#17E8C9',
-        light: '#7CF7DA',
-        dark: '#508C81',
-      },
       green: {
         glow: '#43AD28',
         light: '#4ebf2c',
         dark: '#246e2f',
-      } ,
+      },
       red: {
         glow: '#EB0237',
         light: '#A01131',

@@ -1,7 +1,7 @@
 .button {
   @apply border border-transparent
   transition-all2 flex-center-center
-  rounded-[4px] overflow-hidden cursor-pointer;
+  rounded overflow-hidden cursor-pointer;
 
   &[disabled] {
     @apply pointer-events-none;
@@ -9,7 +9,7 @@
 
   /* COLOR */
   &.default {
-    @apply rounded-[4px];
+    @apply rounded;
   }
 
   &.green {
@@ -22,19 +22,13 @@
     &:active {
       @apply bg-green-dark text-white;
     }
-
   }
 
-
   &.red {
-    @apply bg-red-glow text-white;
-
-    &:hover {
-      @apply hover:bg-red-light hover:border-red-light;
-    }
+    @apply  text-white;
 
     &:active {
-      @apply bg-red-dark border-transparent;
+      @apply bg-red-dark;
     }
   }
 

@@ -9,5 +9,4 @@ export const ApiRoutes = {
 
 export const AppRoutes = {
   home: '/',
-
 }

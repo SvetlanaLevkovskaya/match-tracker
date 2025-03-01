@@ -1,15 +1,15 @@
 import { NavLayout } from '@/components/Layouts/NavLayout'
 
 import { MatchList } from '@/app/(home)/_components'
-import { ErrorProvider } from '@/providers/ErrorContext'
+import { MatchesProvider } from '@/providers/MatchesContext'
 
 
 export default async function MatchListPage() {
   return (
-    <ErrorProvider>
+    <MatchesProvider>
       <NavLayout>
         <MatchList />
       </NavLayout>
-    </ErrorProvider>
+    </MatchesProvider>
   )
 }

@@ -1,12 +1,9 @@
-import { ReactNode, Suspense } from 'react'
+import { ReactNode } from 'react'
 
-import 'react-toastify/dist/ReactToastify.css'
-
+import { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
 import './globals.css'
-import { Metadata } from 'next'
-
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -24,11 +21,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Suspense fallback={<>Loading Suspense...</>}>
-         {children}
-        </Suspense>
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   )
 }

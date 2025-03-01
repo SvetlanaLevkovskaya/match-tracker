@@ -1,37 +1,52 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
+import clsx from 'clsx'
+import Link from 'next/link'
 
+import { AlertIcon } from '@/ui/Icons/AlertIcon'
+import { LogoIcon } from '@/ui/Icons/LogoIcon'
+import { RefreshIcon } from '@/ui/Icons/RefreshIcon'
 import { Button } from '@/ui/index'
 
 import { AppRoutes } from '@/lib/api/routes'
-import { LogoIcon } from '@/ui/Icons/LogoIcon'
-import Link from 'next/link'
-import { RefreshIcon } from '@/ui/Icons/RefreshIcon'
-import { useError } from '@/providers/ErrorContext'
+import { useMatches } from '@/providers/MatchesContext'
 
 
 export const Header = () => {
-  const { error } = useError()
-  const router = useRouter()
+  const { loading, error, refreshMatches } = useMatches()
 
-  const handleRefresh = () => {
-    router.refresh()
-  }
-
+  console.log(loading)
 
   return (
-    <div className="sticky top-0 z-5 text-gray-dark">
-      <div className=" transition-all2">
-        <div className="flex-center-between flex-col tb:flex-row text-gray-5 gap-2.5">
+    <div className="text-gray-dark">
+      <div className="transition-all2">
+        <div className="flex flex-col tb:flex-row tb:items-center tb:justify-between gap-2.5">
           <Link href={AppRoutes.home}>
-            <LogoIcon/>
+            <LogoIcon />
           </Link>
-          {error && <p className="text-red-500">{error}</p>}
-          <Button color="red" size={'l'} onClick={handleRefresh} className='w-full tb:w-auto px-[40px]'>
-            Обновить
-            <RefreshIcon className='ml-2'/>
-          </Button>
+
+          <div className="flex flex-col tb:flex-row tb:items-center gap-2.5">
+            {error && (
+              <div className="px-6 py-[14px] bg-gray-2 rounded flex-center-center gap-2.5">
+                <AlertIcon />
+                <p className="text-white text_s-text tb:text-s_sh2 text-center">{error}</p>
+              </div>
+            )}
+
+            <Button
+              color="red"
+              size="l"
+              onClick={refreshMatches}
+              className={clsx("w-full tb:w-auto px-10", {
+                "bg-red-light": loading,  // Используем ваш цвет red.glow
+                "bg-red-glow": !loading,  // Используем ваш цвет red.light
+                "cursor-not-allowed": loading,  // Курсор "недоступно" при loading
+              })}
+            >
+              Обновить
+              <RefreshIcon className="ml-2.5" />
+            </Button>
+          </div>
         </div>
       </div>
     </div>
