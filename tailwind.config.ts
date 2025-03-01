@@ -2,7 +2,6 @@ import type { Config } from 'tailwindcss'
 import colors from 'tailwindcss/colors'
 import plugin from 'tailwindcss/plugin'
 
-
 const config: Config = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -21,9 +20,9 @@ const config: Config = {
       gray: {
         dark: '#191B20',
         2: '#0B0E12',
-        3: '#33363D',
+        3: '#101318',
         4: '#787878',
-        5: '#E0E0E0',
+        5: '#141A21',
       },
       white: '#F0F0F0',
       green: {
@@ -41,7 +40,7 @@ const config: Config = {
     screens: {
       tb: '768px',
       ds: '1024px',
-      xl: '1280px',
+      xl: '1440px',
     },
     fontSize: {
       s_h1: ['2.625rem', { fontWeight: '500', lineHeight: '105%' }], //42

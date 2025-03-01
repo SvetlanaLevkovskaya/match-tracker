@@ -12,7 +12,7 @@ export const TeamInfo = ({ teamName, isHomeTeam = true }: Props) => {
     >
       {isHomeTeam && <TeamIcon className="w-7 h-7 tb:w-12 tb:h-12" />}
       <p
-        className={`text-white text-s_text tb:text-s_h5 break-all w-[90px] tb:w-[160px] ds:w-[260px] xl:w-[350px] text-left ${
+        className={`text-white text-s_text tb:text-s_h5 break-all w-[90px] tb:w-[160px] ds:w-[260px] xl:w-[350px] truncate text-ellipsis overflow-hidden whitespace-nowrap text-left ${
           !isHomeTeam ? 'text-right' : ''
         }`}
       >

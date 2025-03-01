@@ -6,7 +6,6 @@ import { Button } from '@/ui/Button/Button'
 
 import { AppRoutes } from '@/lib/api/routes'
 
-
 export const ButtonNotFound = () => {
   const { push } = useRouter()
 
@@ -15,9 +14,9 @@ export const ButtonNotFound = () => {
       color="green"
       size="l"
       className="w-full tb:w-[330px] mt-5"
-      onClick={ () => {
+      onClick={() => {
         push(AppRoutes.home)
-      } }
+      }}
     >
       Go Home
     </Button>
