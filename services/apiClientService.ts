@@ -1,7 +1,41 @@
-import axios from 'axios';
+import axios from 'axios'
+
 import { Match } from '@/types'
 
-const API_BASE_URL = 'https://app.ftoyd.com/fronttemp-service';
+
+export const handleApiError = (error: unknown): string => {
+  let errorMessage = 'Unexpected Error';
+
+  if (axios.isAxiosError(error)) {
+    if (error.response) {
+      console.error('API Error:', error.response.data);
+      errorMessage = error.response.data?.message ?? error.response.statusText;
+    } else if (error.request) {
+      console.error('No response Error:', error.request);
+      errorMessage = 'No response from server';
+    }
+  } else if (error instanceof Error) {
+    console.error('Unknown Error:', error.message);
+    errorMessage = error.message;
+  } else {
+    console.error('Unexpected Error:', error);
+    errorMessage = 'Unexpected Error';
+  }
+
+  return errorMessage;
+};
+
+export const instanceAxios = axios.create({
+  baseURL: 'https://app.ftoyd.com/fronttemp-service',
+});
+
+instanceAxios.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    const errorMessage = handleApiError(error);
+    return Promise.reject(new Error(errorMessage));
+  }
+);
 
 
 interface FetchMatchesResponse {
@@ -13,13 +47,12 @@ interface FetchMatchesResponse {
 
 export const fetchMatches = async (): Promise<Match[]> => {
   try {
-    const response = await axios.get<FetchMatchesResponse>(`${API_BASE_URL}/fronttemp`);
+    const response = await instanceAxios.get<FetchMatchesResponse>('/fronttemp');
     if (response.data.ok) {
       return response.data.data.matches;
     }
     throw new Error('Ошибка в API');
   } catch (error) {
-    console.error('Ошибка при получении списка матчей:', error);
-    throw error;
+    throw new Error(handleApiError(error))
   }
 };

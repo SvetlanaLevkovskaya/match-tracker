@@ -16,6 +16,14 @@ export const MatchList = () => {
     return <Spinner />
   }
 
+  if (matches.length === 0) {
+    return (
+      <div className="flex justify-center items-center w-full p-4 text-gray-500">
+        Нет матчей для отображения
+      </div>
+    )
+  }
+
   return (
     <div className="flex flex-col gap-3 w-full">
       {matches.map((match) => (

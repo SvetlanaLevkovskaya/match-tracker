@@ -15,8 +15,6 @@ import { useMatches } from '@/providers/MatchesContext'
 export const Header = () => {
   const { loading, error, refreshMatches } = useMatches()
 
-  console.log(loading)
-
   return (
     <div className="text-gray-dark">
       <div className="transition-all2">
