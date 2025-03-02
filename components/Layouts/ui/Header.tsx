@@ -39,7 +39,7 @@ export const Header = () => {
             Обновить
             <RefreshIcon
               className={clsx('ml-2.5 fill-white', {
-                'fill-gray-4': loading,
+                'fill-gray-4 animate-spin': loading,
               })}
             />
           </Button>
