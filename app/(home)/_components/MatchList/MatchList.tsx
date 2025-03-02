@@ -2,8 +2,6 @@
 
 import { useState } from 'react'
 
-import { Spinner } from '@/components/ui'
-
 import { ArrowIcon } from '@/ui/Icons/ArrowIcon'
 
 import { MatchStatusComponent } from './MatchStatus/MatchStatus'
@@ -12,11 +10,10 @@ import { TeamInfo } from './TeamInfo/TeamInfo'
 import { useMatches } from '@/providers/MatchesContext'
 
 export const MatchList = () => {
-  const { matches, loading, error } = useMatches()
+  const { matches, error } = useMatches()
   const [expandedMatch, setExpandedMatch] = useState<string | null>(null)
 
   if (error) return null
-  if (loading) return <Spinner />
   if (matches.length === 0)
     return (
       <div className="flex-center-center w-full p-4 text-gray-4">Нет матчей для отображения</div>

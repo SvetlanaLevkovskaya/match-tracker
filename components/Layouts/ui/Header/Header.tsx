@@ -17,8 +17,8 @@ export const Header = () => {
 
   return (
     <div className="text-gray-dark">
-      <div className="flex flex-col tb:flex-row tb:justify-between items-center w-full gap-2.5">
-        <div className="flex items-center gap-6 w-full tb:w-auto flex-col tb:flex-row ">
+      <div className="flex flex-col ds:flex-row ds:justify-between items-center w-full gap-2.5">
+        <div className="flex items-center gap-6 w-full ds:w-auto flex-col ds:flex-row ">
           <Link href={AppRoutes.home}>
             <LogoIcon />
           </Link>
@@ -26,11 +26,11 @@ export const Header = () => {
           <MatchStatusFilter selectedStatus={filterStatus} onChange={setFilterStatus} />
         </div>
 
-        <div className="flex flex-col tb:flex-row tb:items-center w-full tb:w-auto gap-2.5 tb:justify-end">
+        <div className="flex flex-col ds:flex-row ds:items-center w-full ds:w-auto gap-2.5 ds:justify-end">
           {error && (
-            <div className="flex items-center tb:justify-center w-full tb:w-[500px] px-6 py-3.5 gap-2.5 bg-gray-2 rounded">
+            <div className="flex items-center ds:justify-center w-full ds:w-[500px] px-6 py-3.5 gap-2.5 bg-gray-2 rounded">
               <AlertIcon />
-              <p className="text-white text_s-text tb:text-s_sh2 text-center tb:text-left">
+              <p className="text-white text_s-text ds:text-s_sh2 text-center ds:text-left">
                 {error}
               </p>
             </div>
@@ -41,7 +41,7 @@ export const Header = () => {
             size="l"
             onClick={refreshMatches}
             disabled={loading}
-            className="w-full tb:w-auto px-10"
+            className="w-full ds:w-auto px-10"
           >
             Обновить
             <RefreshIcon
