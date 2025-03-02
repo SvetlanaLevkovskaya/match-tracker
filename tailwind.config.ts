@@ -19,10 +19,12 @@ const config: Config = {
       black: '#06080C',
       gray: {
         dark: '#191B20',
+        1: '#B4B5B6',
         2: '#0B0E12',
         3: '#101318',
         4: '#787878',
         5: '#141A21',
+        6: '#68696A',
       },
       white: '#F0F0F0',
       orange: '#EB6402',

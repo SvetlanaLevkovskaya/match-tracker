@@ -2,7 +2,7 @@
 
 import { ReactNode } from 'react'
 
-import { Header } from '@/components/Layouts/ui/Header'
+import { Header } from './ui/Header/Header'
 
 export const NavLayout = ({ children }: { children: ReactNode }) => {
   return (
