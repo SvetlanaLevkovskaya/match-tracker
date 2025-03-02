@@ -22,7 +22,7 @@ export const PlayerCard = ({ player }: PlayerProps) => (
       </span>
     </div>
     <span className="text-nowrap text-center text-s_text tb:text-s_body">
-      <span className="pr-2 text-gray-4 text-s_caption tb:text-s_text">Убийств:</span>{' '}
+      <span className="mr-2 text-gray-4 text-s_caption xl:text-s_text">Убийств:</span>{' '}
       {player.kills}
     </span>
   </div>
