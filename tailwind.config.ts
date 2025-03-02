@@ -25,6 +25,7 @@ const config: Config = {
         5: '#141A21',
       },
       white: '#F0F0F0',
+      orange: '#EB6402',
       green: {
         glow: '#43AD28',
         light: '#4ebf2c',

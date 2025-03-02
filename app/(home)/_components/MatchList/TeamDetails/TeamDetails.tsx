@@ -9,8 +9,8 @@ interface Props {
 }
 
 export const TeamDetails = ({ team, isHome }: Props) => (
-  <div className={`${isHome ? 'text-left' : 'text-right'} w-full ds:w-1/2`}>
-    <div className="flex-center-between gap-1">
+  <div className={`w-full ds:w-1/2 ${isHome ? 'text-left' : 'text-right'}`}>
+    <div className="flex-center-between gap-2 tb:gap-1">
       {team.players.map((player) => (
         <PlayerCard key={player.username} player={player} />
       ))}

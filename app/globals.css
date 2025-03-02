@@ -9,6 +9,9 @@
 
 * {
   @media (min-width: theme('screens.tb')) {
+    :root {
+      --scrollbar-width: 10px;
+    }
     &::-webkit-scrollbar {
       width: 10px;
       height: 10px;
@@ -32,9 +35,15 @@
   }
 }
 
+html {
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+}
+
 body {
   @apply bg-black text-white select-none;
   height: 100vh;
+  padding-right: var(--scrollbar-width, 0px);
 }
 
 h1 {

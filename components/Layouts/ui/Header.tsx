@@ -16,16 +16,16 @@ export const Header = () => {
 
   return (
     <div className="text-gray-dark">
-      <div className="flex flex-col items-center tb:flex-row tb:items-center tb:justify-between gap-2.5">
-        <Link href={AppRoutes.home} className="tb:self-center">
+      <div className="flex flex-col items-center tb:flex-row tb:justify-between gap-2.5">
+        <Link href={AppRoutes.home}>
           <LogoIcon />
         </Link>
 
-        <div className="flex flex-col tb:flex-row tb:items-center gap-2.5 w-full tb:w-auto">
+        <div className="flex flex-col tb:flex-row tb:items-center w-full tb:w-auto gap-2.5">
           {error && (
-            <div className="px-6 py-3.5 bg-gray-2 rounded flex-center-center gap-2.5 w-full tb:w-auto">
+            <div className="flex-center-center w-full tb:w-auto px-6 py-3.5 gap-2.5 bg-gray-2 rounded">
               <AlertIcon />
-              <p className="text-white text_s-text tb:text-s_sh2 text-center">{error}</p>
+              <p className="text-center text-white text_s-text tb:text-s_sh2">{error}</p>
             </div>
           )}
 

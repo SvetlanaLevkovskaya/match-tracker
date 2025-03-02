@@ -8,10 +8,13 @@ interface Props {
 export const TeamInfo = ({ teamName, isHomeTeam = true }: Props) => {
   return (
     <div
-      className={`flex items-center gap-1 tb:gap-3 w-auto ${isHomeTeam ? 'flex-row-reverse' : ''}`}
+      className={`flex w-auto items-center gap-1 tb:gap-3 ${isHomeTeam ? 'flex-row-reverse' : ''}`}
     >
       <p
-        className={`text-white text-s_text tb:text-s_h5 break-all truncate overflow-hidden whitespace-nowrap min-w-0 w-24 tb:w-40 ds:w-64 xl:w-96 ${isHomeTeam ? 'text-left' : 'text-right'}`}
+        className={`w-24 tb:w-40 ds:w-64 xl:w-96 min-w-0 
+        truncate overflow-hidden whitespace-nowrap break-all 
+        text-white text-s_text tb:text-s_h5 
+        ${isHomeTeam ? 'text-left' : 'text-right'}`}
       >
         {teamName}
       </p>
