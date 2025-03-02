@@ -1,10 +1,12 @@
+import { memo } from 'react'
+
 import { MatchStatus } from '@/types'
 
 interface Props {
   status: MatchStatus
 }
 
-export const MatchStatusComponent = ({ status }: Props) => {
+export const MatchStatusComponent = memo(({ status }: Props) => {
   const statusStyles = {
     Ongoing: 'bg-green-glow text-white',
     Finished: 'bg-red-glow text-white',
@@ -24,4 +26,6 @@ export const MatchStatusComponent = ({ status }: Props) => {
       {statusLabels[status]}
     </div>
   )
-}
+})
+
+MatchStatusComponent.displayName = 'MatchStatusComponent'

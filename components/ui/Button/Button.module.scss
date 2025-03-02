@@ -25,14 +25,19 @@
   }
 
   &.red {
-    &:active {
-      @apply bg-red-dark;
-    }
-  }
+    @apply bg-red-glow text-white;
 
-  /* DISABLED */
-  &[disabled] {
-    @apply bg-gray-5 border-gray-5 text-gray-4;
+    &:hover {
+      @apply bg-red-light hover:border-red-light;
+    }
+
+    &:active {
+      @apply bg-red-dark border-red-dark;
+    }
+
+    &[disabled] {
+      @apply bg-red-dark border-red-dark text-gray-4;
+    }
   }
 
   /* SIZE */

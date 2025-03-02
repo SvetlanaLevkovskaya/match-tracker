@@ -1,6 +1,5 @@
-import { PlayerCard } from '../PlayerCard/PlayerCard'
-import { TeamStats } from '../TeamStats/TeamStats'
-
+import { PlayerCard } from './PlayerCard/PlayerCard'
+import { TeamStats } from './TeamStats/TeamStats'
 import { Team } from '@/types'
 
 interface Props {
@@ -8,13 +7,15 @@ interface Props {
   isHome?: boolean
 }
 
-export const TeamDetails = ({ team, isHome }: Props) => (
-  <div className={`w-full ds:w-1/2 ${isHome ? 'text-left' : 'text-right'}`}>
-    <div className="flex-center-between gap-2 tb:gap-1">
-      {team.players.map((player) => (
-        <PlayerCard key={player.username} player={player} />
-      ))}
+export const TeamDetails = ({ team, isHome }: Props) => {
+  return (
+    <div className={`w-full ds:w-1/2 ${isHome ? 'text-left' : 'text-right'}`}>
+      <div className="flex-center-between gap-2 tb:gap-1">
+        {team.players.map((player) => (
+          <PlayerCard key={player.username} player={player} />
+        ))}
+      </div>
+      <TeamStats team={team} />
     </div>
-    <TeamStats team={team} />
-  </div>
-)
+  )
+}

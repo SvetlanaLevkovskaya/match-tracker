@@ -33,16 +33,13 @@ export const Header = () => {
             color="red"
             size="l"
             onClick={refreshMatches}
-            className={clsx('w-full tb:w-auto px-10', {
-              'bg-red-glow text-white': !loading && !error,
-              'bg-red-light text-white': loading,
-              'bg-red-dark text-gray-4': error,
-            })}
+            disabled={loading}
+            className="w-full tb:w-auto px-10"
           >
             Обновить
             <RefreshIcon
               className={clsx('ml-2.5 fill-white', {
-                'fill-gray-4': error,
+                'fill-gray-4': loading,
               })}
             />
           </Button>
