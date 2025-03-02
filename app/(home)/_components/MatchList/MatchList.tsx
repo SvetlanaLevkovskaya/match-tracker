@@ -10,10 +10,10 @@ import { TeamInfo } from './TeamInfo/TeamInfo'
 import { useMatches } from '@/providers/MatchesContext'
 
 export const MatchList = () => {
-  const { matches, error } = useMatches()
+  const { matches, loading, error } = useMatches()
   const [expandedMatch, setExpandedMatch] = useState<string | null>(null)
 
-  if (error) return null
+  if (loading || error) return null
   if (matches.length === 0)
     return (
       <div className="flex-center-center w-full p-4 text-gray-4">Нет матчей для отображения</div>
