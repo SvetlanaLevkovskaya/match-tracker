@@ -22,7 +22,9 @@ export const TeamStats = ({ team }: Props) => {
             <span className="leading-[0.8] text-gray-4 text-s_caption xl:text-s_text whitespace-nowrap">
               {stat.label}
             </span>
-            <span className="min-w-[28px] text-s_text xl:text-s_body text-end ">{stat.value}</span>
+            <span className="min-w-[28px] ds:min-w-[32px] text-s_text xl:text-s_body text-end">
+              {stat.value}
+            </span>
           </li>
         ))}
       </ul>

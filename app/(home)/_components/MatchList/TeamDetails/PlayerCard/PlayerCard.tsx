@@ -24,9 +24,7 @@ export const PlayerCard = ({ player }: PlayerProps) => {
       </div>
       <span className="flex items-center text-s_text tb:text-s_body">
         <span className="mr-1 ds:mr-2 text-gray-4 text-s_caption xl:text-s_text">Убийств:</span>
-        <span className="min-w-[28px] inline-block text-ellipsis overflow-hidden text-center">
-          {player.kills}
-        </span>
+        <span className="min-w-[28px] inline-block text-center">{player.kills}</span>
       </span>
     </div>
   )
