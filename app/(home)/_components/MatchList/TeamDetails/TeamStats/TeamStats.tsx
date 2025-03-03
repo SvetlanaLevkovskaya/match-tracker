@@ -17,12 +17,12 @@ export const TeamStats = ({ team }: Props) => {
         {stats.map((stat, index) => (
           <li
             key={index}
-            className="flex-1 flex justify-center items-center space-x-1 xl:space-x-2 pl-2"
+            className="flex-1 flex justify-center items-center space-x-none ds:space-x-1 xl:space-x-2 pl-1 ds:pl-2"
           >
             <span className="leading-[0.8] text-gray-4 text-s_caption xl:text-s_text whitespace-nowrap">
               {stat.label}
             </span>
-            <span className="text-s_text xl:text-s_body">{stat.value}</span>
+            <span className="min-w-[28px] text-s_text xl:text-s_body text-end ">{stat.value}</span>
           </li>
         ))}
       </ul>
