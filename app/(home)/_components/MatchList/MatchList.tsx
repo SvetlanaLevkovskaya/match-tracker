@@ -1,6 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+
+import clsx from 'clsx'
 
 import { ArrowIcon } from '@/ui/Icons/ArrowIcon'
 
@@ -12,6 +14,11 @@ import { useMatches } from '@/providers/MatchesContext'
 export const MatchList = () => {
   const { matches, loading, error } = useMatches()
   const [expandedMatch, setExpandedMatch] = useState<string | null>(null)
+  const [animationKey, setAnimationKey] = useState(0)
+
+  useEffect(() => {
+    setAnimationKey((prevKey) => prevKey + 1)
+  }, [matches])
 
   if (loading || error) return null
   if (matches.length === 0)
@@ -31,7 +38,7 @@ export const MatchList = () => {
 
         return (
           <div
-            key={match.time}
+            key={matchId}
             className="p-2 tb:py-4 tb:px-9 bg-gray-2 rounded-lg"
             onClick={() => toggleMatch(matchId)}
           >
@@ -39,7 +46,10 @@ export const MatchList = () => {
               <div className="flex justify-between flex-grow gap-1">
                 <TeamInfo teamName={match.homeTeam.name} />
                 <div className="flex flex-col items-center min-w-28 ml-0 ds:ml-6">
-                  <p className="mb-1 text-s_text tb:text-s_h5">{`${match.homeScore} : ${match.awayScore}`}</p>
+                  <p
+                    key={`${animationKey}`}
+                    className={clsx(`mb-1 text-s_text tb:text-s_h5 inline-block animate-countUp`)}
+                  >{`${match.homeScore} : ${match.awayScore}`}</p>
                   <MatchStatusComponent status={match.status} />
                 </div>
                 <TeamInfo teamName={match.awayTeam.name} isHomeTeam={false} />

@@ -6,6 +6,8 @@ import { fetchMatches } from '@/services/apiClientService'
 
 import { Match, MatchStatus } from '@/types'
 
+const WS_URL = 'wss://app.ftoyd.com/fronttemp-service/ws'
+
 interface MatchesContextType {
   matches: Match[]
   loading: boolean
@@ -48,6 +50,47 @@ export const MatchesProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     loadMatches()
+
+    const socket = new WebSocket(WS_URL)
+
+    socket.onopen = () => {
+      console.log('WebSocket подключен')
+    }
+
+    socket.onmessage = (event) => {
+      try {
+        const response = JSON.parse(event.data)
+        console.log('Получены данные по WebSocket:', response)
+
+        const updatedMatches = response.data as Match[]
+
+        setMatches((prevMatches) =>
+          prevMatches.map((match) => {
+            const updatedMatch = updatedMatches.find((updated) => {
+              const matchTime = new Date(match.time).getTime()
+              const updatedMatchTime = new Date(updated.time).getTime()
+              return matchTime === updatedMatchTime
+            })
+
+            return updatedMatch ? updatedMatch : match
+          })
+        )
+      } catch (error) {
+        console.error('Ошибка обработки WebSocket-сообщения:', error)
+      }
+    }
+
+    socket.onerror = (error) => {
+      console.error('WebSocket ошибка:', error)
+    }
+
+    socket.onclose = () => {
+      console.log('WebSocket отключен')
+    }
+
+    return () => {
+      socket.close()
+    }
   }, [])
 
   const refreshMatches = () => {

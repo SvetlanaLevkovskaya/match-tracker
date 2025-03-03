@@ -99,10 +99,21 @@ const config: Config = {
           from: { opacity: '0' },
           to: { opacity: '1' },
         },
+        countUp: {
+          '0%': {
+            transform: 'scale(0)',
+            opacity: '0',
+          },
+          '100%': {
+            transform: 'scale(1)',
+            opacity: '1',
+          },
+        },
       },
       animation: {
         scaleIn: 'scaleIn .5s ease-in-out',
         fade: 'fade .5s ease-in-out',
+        countUp: 'countUp 0.9s ease-in-out',
       },
     },
   },

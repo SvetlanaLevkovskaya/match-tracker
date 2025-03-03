@@ -1,5 +1,3 @@
-import { memo } from 'react'
-
 import { TeamIcon } from '@/ui/Icons/TeamIcon'
 
 interface Props {
@@ -7,7 +5,7 @@ interface Props {
   isHomeTeam?: boolean
 }
 
-export const TeamInfo = memo(({ teamName, isHomeTeam = true }: Props) => {
+export const TeamInfo = ({ teamName, isHomeTeam = true }: Props) => {
   return (
     <div
       className={`flex w-auto items-center gap-1 tb:gap-3 ${isHomeTeam ? 'flex-row-reverse' : ''}`}
@@ -23,6 +21,4 @@ export const TeamInfo = memo(({ teamName, isHomeTeam = true }: Props) => {
       <TeamIcon className="w-7 h-7 tb:w-12 tb:h-12" />
     </div>
   )
-})
-
-TeamInfo.displayName = 'TeamInfo'
+}
