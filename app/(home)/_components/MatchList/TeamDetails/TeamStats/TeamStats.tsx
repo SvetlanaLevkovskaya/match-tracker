@@ -12,17 +12,17 @@ export const TeamStats = ({ team }: Props) => {
   ]
 
   return (
-    <div className="mt-2 rounded bg-gray-3 px-3 tb:px-6 py-3.5">
-      <ul className="flex text-center divide-x divide-gray-5">
+    <div className="mt-2 rounded bg-gray-3 px-3 py-3.5 tb:px-6">
+      <ul className="flex divide-x divide-gray-5 text-center">
         {stats.map((stat, index) => (
           <li
             key={index}
-            className="flex-1 flex justify-center items-center space-x-none ds:space-x-1 xl:space-x-2 pl-1 ds:pl-2"
+            className="space-x-none flex flex-1 items-center justify-center pl-1 ds:space-x-1 ds:pl-2 xl:space-x-2"
           >
-            <span className="leading-[0.8] text-gray-4 text-s_caption xl:text-s_text whitespace-nowrap">
+            <span className="whitespace-nowrap text-s_caption leading-[0.8] text-gray-4 xl:text-s_text">
               {stat.label}
             </span>
-            <span className="min-w-[28px] ds:min-w-[32px] text-s_text xl:text-s_body text-end">
+            <span className="min-w-[28px] text-end text-s_text ds:min-w-[32px] xl:text-s_body">
               {stat.value}
             </span>
           </li>

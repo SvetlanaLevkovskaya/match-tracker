@@ -29,7 +29,7 @@ export const MatchStatusFilter = ({ selectedStatus, onChange }: Props) => {
   return (
     <div className="relative w-full ds:w-[180px]">
       <button
-        className="flex items-center justify-between w-full p-4 bg-gray-2 text-gray-1 rounded"
+        className="flex w-full items-center justify-between rounded bg-gray-2 p-4 text-gray-1"
         onClick={() => setIsOpen(!isOpen)}
       >
         {statuses.find((s) => s.value === selectedStatus)?.label}
@@ -41,15 +41,12 @@ export const MatchStatusFilter = ({ selectedStatus, onChange }: Props) => {
       </button>
 
       {isOpen && (
-        <ul
-          className="absolute left-0 mt-2 bg-gray-2 rounded z-10 overflow-auto max-h-[224px]
-          w-full ds:w-[180px]"
-        >
+        <ul className="absolute left-0 z-10 mt-2 max-h-[224px] w-full overflow-auto rounded bg-gray-2 ds:w-[180px]">
           {statuses.map(({ value, label }) => (
             <li
               key={value}
               className={clsx(
-                'p-3 cursor-pointer transition-colors',
+                'cursor-pointer p-3 transition-colors',
                 selectedStatus === value ? 'text-gray-6' : 'text-gray-1',
                 'hover:text-white'
               )}

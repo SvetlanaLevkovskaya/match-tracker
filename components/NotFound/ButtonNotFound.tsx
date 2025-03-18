@@ -13,7 +13,7 @@ export const ButtonNotFound = () => {
     <Button
       color="green"
       size="l"
-      className="w-full tb:w-80 mt-5"
+      className="mt-5 w-full tb:w-80"
       onClick={() => {
         push(AppRoutes.home)
       }}

@@ -11,14 +11,11 @@ export const TeamInfo = ({ teamName, isHomeTeam = true }: Props) => {
       className={`flex w-auto items-center gap-1 tb:gap-3 ${isHomeTeam ? 'flex-row-reverse' : ''}`}
     >
       <p
-        className={`w-24 tb:w-40 ds:w-64 xl:w-96 min-w-0 
-        truncate overflow-hidden whitespace-nowrap break-all 
-        text-white text-s_text tb:text-s_h5 
-        ${isHomeTeam ? 'text-left' : 'text-right'}`}
+        className={`w-24 min-w-0 overflow-hidden truncate whitespace-nowrap break-all text-s_text text-white tb:w-40 tb:text-s_h5 ds:w-64 xl:w-96 ${isHomeTeam ? 'text-left' : 'text-right'}`}
       >
         {teamName}
       </p>
-      <TeamIcon className="w-7 h-7 tb:w-12 tb:h-12" />
+      <TeamIcon className="h-7 w-7 tb:h-12 tb:w-12" />
     </div>
   )
 }
